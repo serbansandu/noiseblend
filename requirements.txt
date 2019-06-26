@@ -1,0 +1,4 @@
+-e .
+git+https://github.com/alin23/python-fire.git
+git+https://github.com/plugaai/aioinflux.git
+git+https://github.com/alin23/arq.git

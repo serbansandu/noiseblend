@@ -1,0 +1,116 @@
+[spotify]
+client_id = "@SPOTIFY_CLIENT_ID"
+client_secret = "@SPOTIFY_CLIENT_SECRET"
+redirect_uri = "https://test.noiseblend.com"
+scope = [
+    "user-read-email",
+    "user-read-private",
+    "user-read-birthdate",
+    "user-library-read",
+    "user-library-modify",
+    "user-top-read",
+    "user-modify-playback-state",
+    "user-read-playback-state",
+    "user-read-currently-playing",
+    "user-read-recently-played",
+    "playlist-read-private",
+    "playlist-read-collaborative",
+    "playlist-modify-public",
+    "playlist-modify-private",
+    "ugc-image-upload"
+]
+
+[api]
+allow_origins = [
+    "https://test.noiseblend.com"
+]
+
+[db]
+create_tables = "@NOISEBLEND_CREATE_TABLES"
+
+[db.connection]
+user = "@DB_USER"
+password = "@DB_PASS"
+host = "@DB_HOST"
+database = "noiseblend"
+port = 5432
+
+# [[db.replica]]
+# user = "@DB_USER"
+# password = "@DB_PASS"
+# host = "localhost"
+# database = "noiseblend"
+# port = 5433
+
+[db.pool.api]
+min_size = 10
+max_size = 50
+max_inactive_connection_lifetime = 300.0
+
+[db.pool.actor]
+min_size = 10
+max_size = 30
+max_inactive_connection_lifetime = 300.0
+
+[db.pool.worker]
+min_size = 0
+max_size = 1
+max_inactive_connection_lifetime = 30.0
+
+[sendgrid]
+template_id = "fa61a7d0-2182-46d6-97be-49871f2950cb"
+apikey = "@SENGRID_APIKEY"
+sender = "confirm@noiseblend.com"
+
+[sentry]
+dsn = "@SENTRY_DSN"
+    [sentry.params]
+    environment = "production"
+
+[influx.client]
+username = "@INFLUX_USER"
+password = "@INFLUX_PASS"
+host = "35.185.246.28"
+port = "8086"
+ssl = false
+db = "noiseblend"
+
+[stats]
+token = "@METRICS_TOKEN"
+[stats.telegraf]
+endpoints = [
+    "/metrics",
+    "/stats",
+    "/stats-collector",
+]
+
+[premium]
+trial_days = 3
+social_share_days = 7
+
+[braintree]
+amount = 4.99
+    [braintree.auth]
+    environment = "production"
+    public_key = "@BRAINTREE_PUBLIC_KEY"
+    private_key = "@BRAINTREE_PRIVATE_KEY"
+    merchant_id = "@BRAINTREE_MERCHANT_ID"
+
+[redis.pool]
+minsize = 2
+maxsize = 20
+[redis.auth]
+host = "localhost"
+port = 6379
+
+[worker.redis.pool]
+minsize = 2
+maxsize = 20
+[worker.redis.auth]
+host = "localhost"
+port = 6379
+
+[alexa]
+auth_type = 'basic'
+client_id = 'alexa-blend'
+client_secret = '@ALEXA_CLIENT_SECRET'

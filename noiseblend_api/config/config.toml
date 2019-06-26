@@ -1,0 +1,101 @@
+[spotify]
+client_id = ""
+client_secret = ""
+redirect_uri = "http://localhost:3000"
+scope = [
+    "user-read-email",
+    "user-read-private",
+    "user-read-birthdate",
+    "user-library-read",
+    "user-library-modify",
+    "user-top-read",
+    "user-modify-playback-state",
+    "user-read-playback-state",
+    "user-read-currently-playing",
+    "user-read-recently-played",
+    "playlist-read-private",
+    "playlist-read-collaborative",
+    "playlist-modify-public",
+    "playlist-modify-private",
+    "ugc-image-upload"
+]
+
+[api]
+allow_origins = ["http://localhost:3000"]
+
+[db]
+create_tables = true
+
+[db.connection]
+user = "postgres"
+password = ""
+host = "localhost"
+database = "noiseblend"
+port = 5432
+
+[db.pool.api]
+min_size = 2
+max_size = 12
+max_inactive_connection_lifetime = 300.0
+
+[db.pool.actor]
+min_size = 2
+max_size = 4
+max_inactive_connection_lifetime = 120.0
+
+[db.pool.worker]
+min_size = 0
+max_size = 2
+max_inactive_connection_lifetime = 30.0
+
+[sendgrid]
+template_id = ""
+apikey = ""
+sender = ""
+
+[sentry]
+dsn = ""
+    [sentry.params]
+    environment = "development"
+
+[influx.client]
+username = ""
+password = ""
+host = "influx.noiseblend.com"
+port = "443"
+ssl = true
+db = "noiseblend"
+
+[premium]
+trial_days = 3
+social_share_days = 7
+
+[stats]
+token = ""
+[stats.telegraf]
+endpoints = [
+    "/metrics",
+    "/stats",
+    "/stats-collector",
+]
+
+[braintree]
+amount = 4.99
+    [braintree.auth]
+    environment = "sandbox"
+    public_key = ""
+    private_key = ""
+    merchant_id = ""
+
+[redis.pool]
+minsize = 5
+maxsize = 50
+[redis.auth]
+host = "ec2-35-171-63-64.compute-1.amazonaws.com"
+port = "34759"
+password = "p6afa85c834742706b68894519869892b8689ea1f112c4c93d69a7f904d34298f"
+
+[alexa]
+auth_type = 'basic'
+client_id = 'alexa-blend'
+client_secret = 'alexa-secret'
