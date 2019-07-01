@@ -1,0 +1,12 @@
+patch-package
+--- a/node_modules/styled-jsx/dist/_utils.js
++++ b/node_modules/styled-jsx/dist/_utils.js
+@@ -417,7 +417,7 @@ var combinePlugins = exports.combinePlugins = function combinePlugins(plugins) {
+       }
+     }
+ 
+-    log('Loading plugin from path: ' + plugin);
++    // log('Loading plugin from path: ' + plugin);
+ 
+     // eslint-disable-next-line import/no-dynamic-require
+     var p = require(plugin);
